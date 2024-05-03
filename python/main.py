@@ -3,6 +3,31 @@
 from bojovnik import Bojovnik
 from kostka import Kostka
 
+
+class Mag(Bojovnik):
+    def __init__(self, jmeno, zivot, utok, obrana, kostka, mana, magicky_utok):
+        super().__init__(jmeno, zivot, utok, obrana, kostka)
+        self._mana = mana
+        self._max_mana = mana
+        self._magicky_utok = magicky_utok
+
+    def utoc(self, souper):
+        if self._mana < self._max_mana:
+            self._mana = self._mana + 10
+            if self._mana > self._max_mana:
+                self._mana = self._max_mana
+            super().utoc(souper)
+        else:
+            uder = self._magicky_utok + self._kostka.roll()
+            zprava = f'{self._jmeno} utoci magii za {uder} hp.'
+            self.nastav_zpravu(zprava)
+            self._mana = 0
+            souper.bran_se(uder)
+
+    def graficka_mana(self):
+        return self.graficky_ukazatel(self._mana, self._max_mana)
+
+
 class Arena:
 
     def __init__(self, bojovnik_1, bojovnik_2, kostka):
@@ -13,9 +38,9 @@ class Arena:
     def _vykresli(self):
         self._vycisti()
         print('----------------- Arena ----------------- \n')
-        print('Zdraví bojovníků: \n')
-        print(f'{self._bojovnik_1} {self._bojovnik_1.graficky_zivot()}')
-        print(f'{self._bojovnik_2} {self._bojovnik_2.graficky_zivot()}')
+        print('Bojovnici: \n')
+        self._vypis_bojovnika(self._bojovnik_1)
+        self._vypis_bojovnika(self._bojovnik_2)
 
     def _vycisti(self):
         import sys as _sys
@@ -51,10 +76,17 @@ class Arena:
                 self._vypis_zpravu(self._bojovnik_2.vypis_zpravu())
                 self._vypis_zpravu(self._bojovnik_1.vypis_zpravu())
 
+    def _vypis_bojovnika(self, bojovnik):
+        print(bojovnik)
+        print(f'Zivot: {bojovnik.graficky_zivot()}')
+        if isinstance(bojovnik, Mag):
+            print(f'Mana: {bojovnik.graficka_mana()}')
+
 
 kostka = Kostka(10)
 bojovnik = Bojovnik("Zalgoren", 100, 20, 10, kostka)
 souper = Bojovnik('Shadow', 60, 18, 15, kostka)
+mag = Mag('Gandalf', 60, 15, 12, kostka, 30, 45)
 
-a = Arena(bojovnik, souper, kostka)
+a = Arena(mag, souper, kostka)
 a.zapas()

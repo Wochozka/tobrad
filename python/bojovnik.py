@@ -28,12 +28,15 @@ class Bojovnik:
         else:
             return False
 
-    def graficky_zivot(self):
+    def graficky_ukazatel(self, aktualni, maximalni):
         celkem = 20
-        pocet = int(self._zivot / self._max_zivot * celkem)
+        pocet = int(aktualni / maximalni * celkem)
         if pocet == 0 and self.je_nazivu():
             pocet = 1
         return f"[{'#'*pocet}{' '*(celkem-pocet)}]"
+
+    def graficky_zivot(self):
+        return self.graficky_ukazatel(self._zivot, self._max_zivot)
 
     def bran_se(self, uder):
         zraneni = uder - (self._obrana + self._kostka.roll())
