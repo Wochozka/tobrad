@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8b70d1f-8ae5-4456-b317-f1d149e64036" name="Changes" comment="" />
+    <list default="true" id="a8b70d1f-8ae5-4456-b317-f1d149e64036" name="Changes" comment="ntg" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +49,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/wochozka/gits/tobrad",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -78,10 +79,24 @@
       <workItem from="1714672744598" duration="116000" />
       <workItem from="1714672863792" duration="30000" />
       <workItem from="1715889012504" duration="824000" />
+      <workItem from="1715889856961" duration="297000" />
     </task>
+    <task id="LOCAL-00001" summary="ntg">
+      <option name="closed" value="true" />
+      <created>1715889894843</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715889894843</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ntg" />
+    <option name="LAST_COMMIT_MESSAGE" value="ntg" />
   </component>
 </project>

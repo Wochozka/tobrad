@@ -6,7 +6,7 @@ import csv
 def write_csv_file(filename, data):
     try:
         with open(filename, 'w', newline='', encoding='utf-8') as file:
-            csv_writer = csv.writer(file)
+            csv_writer = csv.writer(file, delimiter=';')
             csv_writer.writerows(data)
         print(f"Data byla úspěšně uložena do CSV souboru '{filename}'.")
     except IOError:

@@ -8,7 +8,7 @@ def read_csv_file(filename):
 
     try:
         with open(filename, 'r', newline='', encoding='utf-8') as file:
-            csv_reader = csv.reader(file)
+            csv_reader = csv.reader(file, delimiter=';')
             for line in csv_reader:
                 rows.append(line)
         print(f"CSV soubor '{filename}' byl úspěšně načten.")
